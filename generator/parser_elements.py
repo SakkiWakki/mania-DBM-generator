@@ -15,7 +15,7 @@ key_value_pair = Group(key + Optional(Suppress(Literal(" "))) + Optional(value).
 section_header = Suppress("[") + Word(alphas) + Suppress("]")
 
 # Lists
-delim_list = Group(delimitedList((decimal | integer | string), allow_trailing_delim=True, delim=oneOf(", :"), combine=True, min=3))
+delim_list = delimitedList((decimal | integer | string), allow_trailing_delim=True, delim=oneOf(", :"), combine=True, min=3)
 
 # Sections
 version_line = Group(Literal("osu file format v") + Word(nums))
